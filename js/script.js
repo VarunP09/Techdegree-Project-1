@@ -66,8 +66,14 @@ function printQuote(){
 
   let html = `
   <p class="quote">${quoteRandom.quote}</p>
-  <p class ="source">${quoteRandom.source}</p>
-  `
+  <p class="source">${quoteRandom.source}</p>`;
+
+  if(typeof quoteRandom.citation !== 'undefined'){
+    html += `<span class="citation">${quoteRandom.citation}</span>`;
+  }
+  if(typeof quoteRandom.year !== 'undefined'){
+    html += `<span class="year">${quoteRandom.year}</span>`;
+  }
   document.getElementById('quote-box').innerHTML = html; 
 }
 
