@@ -12,7 +12,7 @@ project 1 - A Random Quote Generator
 ***/
 
 //Creating 5 quote objects within an array
-console.log("hi");
+
 const quotes = [
   {
     quote: "Do. Or do not. There is no try.",
@@ -45,9 +45,7 @@ const quotes = [
   }
 ];
 
-for(let i = 0; i<20; i++){
-  console.log(getRandomQuote(quotes));
-}
+
 
 
 
@@ -55,8 +53,8 @@ for(let i = 0; i<20; i++){
  * `getRandomQuote` function
 ***/
 function getRandomQuote(arr){
-  const index = Math.round(Math.random()*arr.length);
-  return index;
+  const index = Math.round(Math.random()*(arr.length-1));
+  return arr[index];
 }
 
 
@@ -64,7 +62,13 @@ function getRandomQuote(arr){
  * `printQuote` function
 ***/
 function printQuote(){
-  
+  const quoteRandom = getRandomQuote(quotes);
+
+  let html = `
+  <p class="quote">${quoteRandom.quote}</p>
+  <p class ="source">${quoteRandom.source}</p>
+  `
+  document.getElementById('quote-box').innerHTML = html; 
 }
 
 
